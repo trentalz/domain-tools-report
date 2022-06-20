@@ -49,7 +49,7 @@ function iterateOverURLs() {
 // Check expiry date of the given URL. Return the expiry date as a string.
 function checkExpiry(url) {
     let expiryDate = '';
-    let pleaseBeExpiryDate = https.get(url, function(res) {
+    https.get(url, function(res) {
         let cert = res.connection.getPeerCertificate();
         let expiryDate = cert.valid_to;
         console.log('https get url function ' + url + ': ' + expiryDate); // Looks good
